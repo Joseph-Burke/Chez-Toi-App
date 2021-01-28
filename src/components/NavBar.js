@@ -1,3 +1,5 @@
+import styles from './styles/NavBar.module.scss';
+
 const NavBar = () => {
   return (
     <nav>

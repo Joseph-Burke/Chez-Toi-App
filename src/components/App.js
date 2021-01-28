@@ -4,7 +4,6 @@ import 'react-bootstrap';
 
 const App = props => {
   const { data } = props;
-
   return (
     <div>
       <NavBar />
