@@ -1,0 +1,11 @@
+.app {
+  display: flex;
+  height: 100vh;
+  padding: 0;
+  .row {
+    flex-grow: 1;
+    .nav-column {
+      display: flex;
+    }
+  }
+}
