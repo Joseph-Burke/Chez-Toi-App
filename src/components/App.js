@@ -22,7 +22,7 @@ const App = props => {
               <NavBar />
               <HouseBrowser />
             </Route>
-            <Route exact path="/recipe/:id">
+            <Route exact path="/house/:id">
               <NavBar />
               <HouseDetails />
             </Route>

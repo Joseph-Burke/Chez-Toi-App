@@ -5,6 +5,8 @@ import Col from "react-bootstrap/Col";
 import Carousel from "react-bootstrap/Carousel";
 import Image from "react-bootstrap/Image";
 
+import { Link } from 'react-router-dom';
+
 import NavBar from "../components/NavBar";
 
 import styles from "./styles/HouseBrowser.module.scss";
@@ -30,6 +32,7 @@ const HouseBrowser = props => {
             <Carousel.Caption>
               <h3>{house.location}</h3>
               <p>{house.description}</p>
+              <Link to={`/house/${house.id}`}>View Details</Link>
             </Carousel.Caption>
           </Carousel.Item>
         ))}
