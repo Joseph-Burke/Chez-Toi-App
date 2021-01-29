@@ -2,12 +2,13 @@ import "./styles/index.scss";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import store from "./store/store";
+import storePromise from "./store/store";
 import App from "./components/App";
 
-store.then(fulfilledStore => {
+storePromise.then(store => {
+  console.log(store.getState());
   ReactDOM.render(
-    <Provider store={fulfilledStore}>
+    <Provider store={store}>
       <React.StrictMode>
         <App />
       </React.StrictMode>
