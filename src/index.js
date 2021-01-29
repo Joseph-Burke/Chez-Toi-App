@@ -6,7 +6,6 @@ import storePromise from "./store/store";
 import App from "./components/App";
 
 storePromise.then(store => {
-  console.log(store.getState());
   ReactDOM.render(
     <Provider store={store}>
       <React.StrictMode>
