@@ -8,6 +8,7 @@ import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
+import Form from "react-bootstrap/Form";
 
 import NavBar from "../components/NavBar";
 
@@ -37,9 +38,26 @@ const HouseDetails = ({ houses }) => {
         </Button>
         <Modal show={showModal} onHide={closeModal}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>Book a Viewing</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Body>
+            <p>Choose a time and date to view this house:</p>
+
+            <Form>
+              <Form.Group controlId="date">
+                <Form.Label>Date</Form.Label>
+                <Form.Control type="date" />
+              </Form.Group>
+              <Form.Group controlId="time">
+                <Form.Label>Time</Form.Label>
+                <Form.Control type="time" as="select">
+                  {[9, 10, 11, 12, 13, 14, 15, 16].map(num => {
+                    return <option>{num}:00</option>;
+                  })}
+                </Form.Control>
+              </Form.Group>
+            </Form>
+          </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={closeModal}>
               Close
