@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap");
 
 .nav-bar {
   flex-grow: 1;
@@ -12,11 +12,15 @@
     list-style-type: none;
     padding-left: 15px;
     margin-bottom: 0;
-    font-family: 'Lato', sans-serif;
-    
+    font-family: "Lato", sans-serif;
+
     li {
       padding: 9px 15px;
       font-size: 15px;
+    }
+
+    .active {
+      background: green;
     }
   }
   .top-div {

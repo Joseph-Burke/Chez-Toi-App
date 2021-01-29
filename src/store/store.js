@@ -3,7 +3,9 @@ import reducer from "../reducers/reducer";
 import getData from "../helpers/getData";
 
 const generateStore = async () => {
-  const initialState = await getData();
+  const initialState = {
+    data: await getData(),
+  };
   return createStore(reducer, initialState);
 };
 
