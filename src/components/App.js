@@ -24,14 +24,18 @@ const App = props => {
         <Col sm={2} className={styles["nav-column"]}>
           <NavBar />
         </Col>
-        <Col sm={10}>
-          <Carousel interval={null} >
+        <Col sm={10} as={Container} className={styles["main-column"]}>
+          <h1>LATEST MODELS</h1>
+          <h5>Please select a Vespa model</h5>
+
+          <Carousel interval={null} className={styles.carousel}>
             {houses.map(house => (
               <Carousel.Item>
                 <Image
-                  roundedCircle
+                  // roundedCircle
                   src={placeholderImage}
                   alt={`A picture of a house at ${house.location}`}
+                  className={styles.image}
                 />
                 <Carousel.Caption>
                   <h3>{house.location}</h3>
