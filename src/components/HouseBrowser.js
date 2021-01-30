@@ -18,18 +18,20 @@ const HouseBrowser = props => {
   const { houses } = props;
   return (
     <Col sm={10} as={Container} className={styles["main-column"]}>
-      <h1>LATEST MODELS</h1>
-      <h5>Please select a Vespa model</h5>
+      <h1>HOUSES</h1>
+      <h5>Browse through our houses available for a viewing</h5>
 
       <Carousel interval={null} className={styles.carousel}>
         {houses.map(house => (
-          <Carousel.Item>
+          <Carousel.Item className={styles['carousel-item']}>
             <Image
               src={placeholderImage}
               alt={`A picture of a house at ${house.location}`}
               className={styles.image}
-            />
-            <Carousel.Caption>
+              />
+            <Carousel.Caption
+              className={styles['carousel-caption']}
+            >
               <h3>{house.location}</h3>
               <p>{house.description}</p>
               <Link to={`/house/${house.id}`}>View Details</Link>

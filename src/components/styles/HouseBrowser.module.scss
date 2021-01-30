@@ -4,8 +4,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding-top: 100px;
+  // justify-content: center;
+  padding-top: 50px;
 
   h1,
   h5 {
@@ -19,11 +19,24 @@
   h5 {
     color: rgba(150, 150, 150, 0.8);
     font-size: 17px;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
   }
 
   .carousel {
-    width: 95%;
+    flex: 1;
+    width: 66%;
+    display: flex;
+    overflow-x: hidden;
+    .carousel-item {
+      .image {
+        margin: 0 auto;
+      }
+      .carousel-caption {
+        position: static;
+        color: black;
+        padding-top: 0px;
+      }
+    }
 
     .carousel-indicators {
       margin: 0;
