@@ -1,10 +1,13 @@
+import { NavLink } from "react-router-dom";
+
+import Col from "react-bootstrap/Col";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
+
 import styles from "./styles/NavBar.module.scss";
-import { connect } from "react-redux";
-import { NavLink, BrowserRouter as Router, Switch } from "react-router-dom";
-import Col from "react-bootstrap/Col";
+import icon from "../assets/house-icon.png";
 
 library.add(fab);
 
@@ -12,9 +15,8 @@ const NavBar = () => {
   return (
     <Col sm={2} className={styles["nav-column"]}>
       <nav className={styles["nav-bar"]}>
-        {/* <img src="https://i.pinimg.com/originals/90/ca/23/90ca238d91c96dc486dd8c618ebbf925.jpg" /> */}
         <div className={styles["top-div"]}>
-          <div className={styles["image"]}>Image</div>
+          <img src={icon} className={styles["image"]} />
 
           <ul className={styles["nav-list"]}>
             <li>

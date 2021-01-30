@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Carousel from "react-bootstrap/Carousel";
 import Image from "react-bootstrap/Image";
+import Button from "react-bootstrap/Button";
 
 import { Link } from 'react-router-dom';
 
@@ -34,7 +35,7 @@ const HouseBrowser = props => {
             >
               <h3>{house.location}</h3>
               <p>{house.description}</p>
-              <Link to={`/house/${house.id}`}>View Details</Link>
+              <Link to={`/house/${house.id}`} as={'button'} className="btn btn-primary">View Details</Link>
             </Carousel.Caption>
           </Carousel.Item>
         ))}

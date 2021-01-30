@@ -23,8 +23,11 @@
       }
     }
     .top-div {
+      display: flex;
+      flex-direction: column;
+
       .image {
-        height: 100px;
+        padding: 0 15px;
       }
     }
     .bottom-div {
