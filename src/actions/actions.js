@@ -1,5 +1,6 @@
 import constants from "../constants/constants";
 
-const changeData = data => {data};
-
-export default changeData;
+export const refreshStore = data => ({
+  type: "REFRESH_STORE",
+  payload: data
+});

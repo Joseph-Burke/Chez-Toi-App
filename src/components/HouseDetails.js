@@ -1,17 +1,18 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-
+import { useState } from "react";
 import { connect } from "react-redux";
+
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 
+import { refreshStore as refreshStoreThunk } from '../reducers/reducer';
 import getHousePictureURL from "../helpers/getHousePictureURL";
 import styles from "./styles/HouseDetails.module.scss";
 
-const HouseDetails = ({ houses }) => {
+const HouseDetails = ({houses, refreshStore}) => {
   const { id } = useParams();
   const house = houses.find(house => house.id === parseInt(id, 10));
 
@@ -34,6 +35,13 @@ const HouseDetails = ({ houses }) => {
         return;
     }
   };
+
+  const submitForm = () => {
+    refreshStore();
+    // When the form is submitted, I want to 
+    // a) Send the PUT request to the back-end
+    // b) Trigger a refresh of all data so it reflects the new state of the database.
+  }
 
   return (
     <Col sm={10} as={Row} className={styles["main-column"]}>
@@ -84,9 +92,7 @@ const HouseDetails = ({ houses }) => {
           <Modal.Footer>
             <Button
               variant="primary"
-              onClick={event => {
-                const { target } = event;
-              }}
+              onClick={submitForm}
             >
               Book Viewing
             </Button>
@@ -101,4 +107,10 @@ const mapStateToProps = state => ({
   houses: state.houses
 });
 
-export default connect(mapStateToProps)(HouseDetails);
+const mapDispatchToProps = dispatch => ({
+  refreshStore: () => {
+    dispatch(refreshStoreThunk());
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(HouseDetails);
