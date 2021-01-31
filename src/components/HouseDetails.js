@@ -1,16 +1,12 @@
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { connect } from "react-redux";
-import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
-import Form from "react-bootstrap/Form";
-
-import NavBar from "../components/NavBar";
 
 import getHousePictureURL from "../helpers/getHousePictureURL";
 import styles from "./styles/HouseDetails.module.scss";
@@ -22,6 +18,22 @@ const HouseDetails = ({ houses }) => {
   const [showModal, setShowModal] = useState(false);
   const closeModal = () => setShowModal(false);
   const openModal = () => setShowModal(true);
+
+  const [date, setDate] = useState("2020-02-01");
+  const [time, setTime] = useState("20:00:00");
+
+  const handleChange = (stateKey, { target: { value } }) => {
+    switch (stateKey) {
+      case "date":
+        setDate(value);
+        break;
+      case "time":
+        setTime(value);
+        break;
+      default:
+        return;
+    }
+  };
 
   return (
     <Col sm={10} as={Row} className={styles["main-column"]}>
@@ -46,27 +58,34 @@ const HouseDetails = ({ houses }) => {
           <Modal.Body>
             <p>Choose a time and date to view this house:</p>
 
-            <Form>
-              <Form.Group controlId="date">
-                <Form.Label>Date</Form.Label>
-                <Form.Control type="date" />
-              </Form.Group>
-              <Form.Group controlId="time">
-                <Form.Label>Time</Form.Label>
-                <Form.Control type="time" as="select">
-                  {[9, 10, 11, 12, 13, 14, 15, 16].map(num => {
-                    return <option>{num}:00</option>;
-                  })}
-                </Form.Control>
-              </Form.Group>
-            </Form>
+            <form>
+              <div className="form-group">
+                <label htmlFor="date">Date</label>
+                <input
+                  id="date"
+                  type="date"
+                  className="form-control"
+                  value={date}
+                  onChange={handleChange.bind(this, "date")}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="time">Time</label>
+                <input
+                  id="time"
+                  type="time"
+                  className="form-control"
+                  value={time}
+                  onChange={handleChange.bind(this, "time")}
+                />
+              </div>
+            </form>
           </Modal.Body>
           <Modal.Footer>
             <Button
               variant="primary"
               onClick={event => {
                 const { target } = event;
-                console.log(event);
               }}
             >
               Book Viewing
