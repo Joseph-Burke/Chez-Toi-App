@@ -12,10 +12,8 @@ import Form from "react-bootstrap/Form";
 
 import NavBar from "../components/NavBar";
 
+import getHousePictureURL from "../helpers/getHousePictureURL";
 import styles from "./styles/HouseDetails.module.scss";
-
-const placeholderImage =
-  "https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F1026205392%2F0x0.jpg";
 
 const HouseDetails = ({ houses }) => {
   const { id } = useParams();
@@ -28,7 +26,12 @@ const HouseDetails = ({ houses }) => {
   return (
     <Col sm={10} as={Row} className={styles["main-column"]}>
       <Col sm={9}>
-        <Image className={styles.image} src={placeholderImage} fluid rounded />
+        <Image
+          className={styles.image}
+          src={getHousePictureURL(house.id)}
+          fluid
+          rounded
+        />
       </Col>
       <Col sm={3}>
         <h4>{house.location}</h4>
@@ -59,11 +62,14 @@ const HouseDetails = ({ houses }) => {
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={closeModal}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={closeModal}>
-              Save Changes
+            <Button
+              variant="primary"
+              onClick={event => {
+                const { target } = event;
+                console.log(event);
+              }}
+            >
+              Book Viewing
             </Button>
           </Modal.Footer>
         </Modal>

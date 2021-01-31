@@ -8,29 +8,24 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import Col from "react-bootstrap/Col";
 import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
+import getHousePictureURL from "../helpers/getHousePictureURL";
 
 import styles from "./styles/ViewingsList.module.scss";
 library.add(far, fas);
 
-const placeholderImage =
-  "https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F1026205392%2F0x0.jpg";
-
-const ViewingsList = props => {
-  console.log(props.viewings);
-  const { houses, viewings } = props;
+const ViewingsList = ({ houses, viewings }) => {
   return (
     <Col sm={10} className={styles["main-column"]}>
       <h1>Your Viewings</h1>
       <CardGroup className={styles["card-group"]}>
-        {props.viewings.map(viewing => {
+        {viewings.map(viewing => {
           const dateTime = new Date(viewing.time);
           const house = houses.find(house => house.id == viewing.house_id);
-          console.log(house);
           return (
             <Card className={styles.card}>
               <Card.Img
                 variant="top"
-                src={placeholderImage}
+                src={getHousePictureURL(house.id)}
                 className={styles.image}
               />
               <Card.Body>

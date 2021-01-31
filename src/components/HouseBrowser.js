@@ -5,15 +5,12 @@ import Col from "react-bootstrap/Col";
 import Carousel from "react-bootstrap/Carousel";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
-
+import getHousePictureURL from '../helpers/getHousePictureURL';
 import { Link } from 'react-router-dom';
 
 import NavBar from "../components/NavBar";
 
 import styles from "./styles/HouseBrowser.module.scss";
-
-const placeholderImage =
-  "https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F1026205392%2F0x0.jpg";
 
 const HouseBrowser = props => {
   const { houses } = props;
@@ -26,7 +23,7 @@ const HouseBrowser = props => {
         {houses.map(house => (
           <Carousel.Item className={styles['carousel-item']}>
             <Image
-              src={placeholderImage}
+              src={getHousePictureURL(house.id)}
               alt={`A picture of a house at ${house.location}`}
               className={styles.image}
               />
