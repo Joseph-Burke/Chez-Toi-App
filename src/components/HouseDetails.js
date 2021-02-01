@@ -8,11 +8,13 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 
-import { refreshStore as refreshStoreThunk } from '../reducers/reducer';
+import {
+  refreshStore as refreshStoreThunk,
+} from "../reducers/reducer";
 import getHousePictureURL from "../helpers/getHousePictureURL";
 import styles from "./styles/HouseDetails.module.scss";
 
-const HouseDetails = ({houses, refreshStore}) => {
+const HouseDetails = ({ houses, refreshStore }) => {
   const { id } = useParams();
   const house = houses.find(house => house.id === parseInt(id, 10));
 
@@ -36,12 +38,23 @@ const HouseDetails = ({houses, refreshStore}) => {
     }
   };
 
-  const submitForm = () => {
+  const submitForm = async () => {
+    const params = {
+      house_id: house.id,
+      user_id: 1,
+      date: date,
+      time: time
+    };
+    const paramsString = Object.keys(params)
+      .map(key => `${key}=${params[key]}`)
+      .join("&");
+
+    await fetch(`http://localhost:3000/viewings?${paramsString}`, {
+      method: "POST",
+      mode: "cors"
+    });
     refreshStore();
-    // When the form is submitted, I want to 
-    // a) Send the PUT request to the back-end
-    // b) Trigger a refresh of all data so it reflects the new state of the database.
-  }
+  };
 
   return (
     <Col sm={10} as={Row} className={styles["main-column"]}>
@@ -90,10 +103,7 @@ const HouseDetails = ({houses, refreshStore}) => {
             </form>
           </Modal.Body>
           <Modal.Footer>
-            <Button
-              variant="primary"
-              onClick={submitForm}
-            >
+            <Button variant="primary" onClick={submitForm}>
               Book Viewing
             </Button>
           </Modal.Footer>
@@ -111,6 +121,6 @@ const mapDispatchToProps = dispatch => ({
   refreshStore: () => {
     dispatch(refreshStoreThunk());
   }
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(HouseDetails);

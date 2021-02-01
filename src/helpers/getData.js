@@ -1,8 +1,9 @@
 const getData = async () => {
-  const users = await fetch("http://localhost:3000", {
+  const data = await fetch("http://localhost:3000", {
     mode: "cors"
   }).then(response => response.json());
-  return users;
+  
+  return data;
 }
 
 export default getData;

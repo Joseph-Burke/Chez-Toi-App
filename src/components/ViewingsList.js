@@ -38,14 +38,14 @@ const ViewingsList = ({ houses, viewings }) => {
                         icon={["far", "calendar-alt"]}
                         className="mr-2"
                       />
-                      {dateTime.toDateString()}
+                      {new Date(viewing.when).toDateString()}
                     </span>
                     <span>
                       <FontAwesomeIcon
                         icon={["far", "clock"]}
                         className="mr-2"
                       />
-                      {`${dateTime.getHours().toString()}:00`}
+                      {`${new Date(viewing.when).getHours()}:00`}
                     </span>
                   </p>
 
