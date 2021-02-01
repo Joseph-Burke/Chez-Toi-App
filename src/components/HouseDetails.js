@@ -39,9 +39,15 @@ const HouseDetails = ({ houses, refreshStore }) => {
   };
 
   const submitForm = async () => {
+    const loggedInUserId = localStorage.getItem('loggedInUserId');
+    if (!loggedInUserId) {
+      alert('You need to log in before you can make an appointment!');
+      return;
+    };
+
     const params = {
       house_id: house.id,
-      user_id: 1,
+      user_id: localStorage.getItem('loggedInUserId'),
       date: date,
       time: time
     };
