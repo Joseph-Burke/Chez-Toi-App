@@ -12,6 +12,32 @@ import icon from "../assets/house-icon.png";
 library.add(fab);
 
 const NavBar = () => {
+  const accountLinks = localStorage.getItem("loggedInUserId") ? (
+    <li>
+      <a
+        href="/"
+        onClick={() => {
+          localStorage.removeItem("loggedInUserId");
+        }}
+      >
+        LOG OUT
+      </a>
+    </li>
+  ) : (
+    <>
+      <li>
+        <NavLink activeClassName={styles.active} to="/log_in">
+          LOG IN
+        </NavLink>
+      </li>
+      <li>
+        <NavLink activeClassName={styles.active} to="/sign_up">
+          SIGN UP
+        </NavLink>
+      </li>
+    </>
+  );
+
   return (
     <Col sm={2} className={styles["nav-column"]}>
       <nav className={styles["nav-bar"]}>
@@ -34,16 +60,7 @@ const NavBar = () => {
                 VIEWINGS
               </NavLink>
             </li>
-            <li>
-              <NavLink activeClassName={styles.active} to="/log_in">
-                LOG IN
-              </NavLink>
-            </li>
-            <li>
-              <NavLink activeClassName={styles.active} to="/sign_up">
-                SIGN UP
-              </NavLink>
-            </li>
+            {accountLinks}
           </ul>
         </div>
         <div className={styles["bottom-div"]}>
