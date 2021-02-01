@@ -39,6 +39,11 @@ const NavBar = () => {
                 LOG IN
               </NavLink>
             </li>
+            <li>
+              <NavLink activeClassName={styles.active} to="/sign_up">
+                SIGN UP
+              </NavLink>
+            </li>
           </ul>
         </div>
         <div className={styles["bottom-div"]}>

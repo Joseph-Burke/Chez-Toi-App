@@ -15,6 +15,7 @@ import HouseBrowser from "./HouseBrowser";
 import HouseDetails from "./HouseDetails";
 import ViewingsList from "./ViewingsList";
 import LogIn from "./LogIn";
+import SignUp from "./SignUp";
 
 import styles from "./styles/App.module.scss";
 
@@ -36,6 +37,9 @@ const App = props => {
             </Route>
             <Route exact path="/log_in">
               <LogIn />
+            </Route>
+            <Route exact path="/sign_up">
+              <SignUp />
             </Route>
           </Switch>
         </Router>
