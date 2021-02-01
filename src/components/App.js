@@ -14,6 +14,7 @@ import NavBar from "./NavBar";
 import HouseBrowser from "./HouseBrowser";
 import HouseDetails from "./HouseDetails";
 import ViewingsList from "./ViewingsList";
+import LogIn from "./LogIn";
 
 import styles from "./styles/App.module.scss";
 
@@ -32,6 +33,9 @@ const App = props => {
             </Route>
             <Route exact path="/viewings">
               <ViewingsList />
+            </Route>
+            <Route exact path="/log_in">
+              <LogIn />
             </Route>
           </Switch>
         </Router>

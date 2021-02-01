@@ -34,6 +34,11 @@ const NavBar = () => {
                 VIEWINGS
               </NavLink>
             </li>
+            <li>
+              <NavLink activeClassName={styles.active} to="/log_in">
+                LOG IN
+              </NavLink>
+            </li>
           </ul>
         </div>
         <div className={styles["bottom-div"]}>
