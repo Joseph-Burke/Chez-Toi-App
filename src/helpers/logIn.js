@@ -17,7 +17,8 @@ const logIn = async email => {
   // Find the user with the matching e-mail address.
   const match = users.find(user => user.email === email);
   if (match) {
-    localStorage.setItem('loggedInUserId', JSON.stringify(match.id))
+    localStorage.setItem('loggedInUserId', JSON.stringify(match.id));
+    window.location.href = window.location.origin;
   } else {
     alert(
       `\"${email}\" does not match any of the users in our database! Try creating an account instead.`
