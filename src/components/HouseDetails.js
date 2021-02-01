@@ -59,7 +59,8 @@ const HouseDetails = ({ houses, refreshStore }) => {
       method: "POST",
       mode: "cors"
     });
-    refreshStore();
+    await refreshStore();
+    window.location.href = '/viewings';
   };
 
   return (
