@@ -1,23 +1,23 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
-import Col from "react-bootstrap/Col";
+import Col from 'react-bootstrap/Col';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fab } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 
-import styles from "./styles/NavBar.module.scss";
-import icon from "../assets/house-icon.png";
+import styles from './styles/NavBar.module.scss';
+import icon from '../assets/house-icon.png';
 
 library.add(fab);
 
 const NavBar = () => {
-  const accountLinks = localStorage.getItem("loggedInUserId") ? (
+  const accountLinks = localStorage.getItem('loggedInUserId') ? (
     <li>
       <a
         href="/"
         onClick={() => {
-          localStorage.removeItem("loggedInUserId");
+          localStorage.removeItem('loggedInUserId');
         }}
       >
         LOG OUT
@@ -39,12 +39,12 @@ const NavBar = () => {
   );
 
   return (
-    <Col sm={2} className={styles["nav-column"]}>
-      <nav className={styles["nav-bar"]}>
-        <div className={styles["top-div"]}>
-          <img src={icon} className={styles["image"]} />
+    <Col sm={2} className={styles['nav-column']}>
+      <nav className={styles['nav-bar']}>
+        <div className={styles['top-div']}>
+          <img alt="A logo for the website. It depicts a colourful cartoon house" src={icon} className={styles.image} />
 
-          <ul className={styles["nav-list"]}>
+          <ul className={styles['nav-list']}>
             <li>
               <NavLink activeClassName={styles.active} to="/">
                 BROWSE
@@ -63,25 +63,25 @@ const NavBar = () => {
             {accountLinks}
           </ul>
         </div>
-        <div className={styles["bottom-div"]}>
-          <ul className={styles["social-links"]}>
+        <div className={styles['bottom-div']}>
+          <ul className={styles['social-links']}>
             <li>
-              <FontAwesomeIcon icon={["fab", "twitter"]} />
+              <FontAwesomeIcon icon={['fab', 'twitter']} />
             </li>
             <li>
-              <FontAwesomeIcon icon={["fab", "facebook-f"]} />
+              <FontAwesomeIcon icon={['fab', 'facebook-f']} />
             </li>
             <li>
-              <FontAwesomeIcon icon={["fab", "google-plus-g"]} />
+              <FontAwesomeIcon icon={['fab', 'google-plus-g']} />
             </li>
             <li>
-              <FontAwesomeIcon icon={["fab", "vimeo-v"]} />
+              <FontAwesomeIcon icon={['fab', 'vimeo-v']} />
             </li>
             <li>
-              <FontAwesomeIcon icon={["fab", "pinterest-p"]} />
+              <FontAwesomeIcon icon={['fab', 'pinterest-p']} />
             </li>
           </ul>
-          <small className={styles["copyright-info"]}>
+          <small className={styles['copyright-info']}>
             &#169; 2015 PIAGGIO & C.S.P.A - P.I.V.A
           </small>
         </div>

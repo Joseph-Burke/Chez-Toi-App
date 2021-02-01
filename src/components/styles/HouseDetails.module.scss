@@ -2,4 +2,6 @@
 
 .main-column {
   padding-top: 100px;
+  overflow: scroll;
+  max-height: 100vh;
 }

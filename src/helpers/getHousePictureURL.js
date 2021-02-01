@@ -1,5 +1,5 @@
-const getURL = (houseId) => {
-  const prefix = "http://localhost:3000";
+const getURL = houseId => {
+  const prefix = 'http://localhost:3000';
   return `${prefix}/houses/${houseId}/picture`;
 };
 

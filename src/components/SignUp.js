@@ -1,59 +1,57 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 
 import signUp from '../helpers/signUp';
 
 const SignUp = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
 
   const handleChange = (stateIdentifier, { target: { value } }) => {
     switch (stateIdentifier) {
-      case "name":
+      case 'name':
         setName(value);
         break;
-      case "email":
+      case 'email':
         setEmail(value);
         break;
       default:
-        return;
     }
   };
 
   const handleSubmit = () => {
-    signUp({email, name});
+    signUp({ email, name });
   };
 
   return (
-    <Col
-      sm={10}
-      as={Container}
-    >
+    <Col sm={10} as={Container}>
       <form className="form p-3">
         <h1>Sign Up</h1>
         <div className="form-group">
-          <label htmlFor="name">Name</label>
-          <input
-            id="name"
-            type="text"
-            className="form-control"
-            onChange={handleChange.bind(this, "name")}
-            value={name}
-          />
+          <label htmlFor="name">
+            Name
+            <input
+              id="name"
+              type="text"
+              className="form-control"
+              onChange={handleChange.bind(this, 'name')}
+              value={name}
+            />
+          </label>
         </div>
         <div className="form-group">
-          <label htmlFor="email">E-mail</label>
-          <input
-            id="email"
-            type="email"
-            className="form-control"
-            onChange={handleChange.bind(this, "email")}
-            value={email}
-          />
+          <label htmlFor="email">
+            E-mail
+            <input
+              id="email"
+              type="email"
+              className="form-control"
+              onChange={handleChange.bind(this, 'email')}
+              value={email}
+            />
+          </label>
         </div>
         <button
           onClick={handleSubmit}

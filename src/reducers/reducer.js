@@ -1,9 +1,11 @@
-import { refreshStore as refreshStoreAction } from "../actions/actions";
-import getData from "../helpers/getData";
+import actions from '../actions/actions';
+import getData from '../helpers/getData';
+
+const { refreshStore: refreshStoreAction } = actions;
 
 const filterReducer = (state, action) => {
   switch (action.type) {
-    case "REFRESH_STORE":
+    case 'REFRESH_STORE':
       return action.payload;
     default:
       return state;

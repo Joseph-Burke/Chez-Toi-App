@@ -1,6 +1,8 @@
-import constants from "../constants/constants";
+const actions = {
+  refreshStore: data => ({
+    type: 'REFRESH_STORE',
+    payload: data,
+  }),
+};
 
-export const refreshStore = data => ({
-  type: "REFRESH_STORE",
-  payload: data
-});
+export default actions;

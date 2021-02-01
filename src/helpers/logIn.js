@@ -1,8 +1,8 @@
 import {
   refreshStore as refreshStoreThunk,
-} from "../reducers/reducer";
+} from '../reducers/reducer';
 
-import storePromise from "../store/store";
+import storePromise from '../store/store';
 
 const logIn = async email => {
   // Dispatch a data refresh to the store.
@@ -12,17 +12,13 @@ const logIn = async email => {
 
   // Get users from the new store.
   const newStore = await storePromise;
-  const { users } = newStore.getState();  
-  
+  const { users } = newStore.getState();
+
   // Find the user with the matching e-mail address.
   const match = users.find(user => user.email === email);
   if (match) {
     localStorage.setItem('loggedInUserId', JSON.stringify(match.id));
     window.location.href = window.location.origin;
-  } else {
-    alert(
-      `\"${email}\" does not match any of the users in our database! Try creating an account instead.`
-    )
   }
 };
 
