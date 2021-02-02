@@ -39,9 +39,9 @@ const NavBar = () => {
   );
 
   return (
-    <Col sm={2} className={styles["nav-column"]} data-testid="nav-bar">
-      <nav className={styles["nav-bar"]}>
-        <div className={styles["top-div"]}>
+    <Col sm={2} className={styles['nav-column']} data-testid="nav-bar">
+      <nav className={styles['nav-bar']}>
+        <div className={styles['top-div']}>
           <img
             alt="A logo for the website. It depicts a colourful cartoon house"
             src={icon}
@@ -49,7 +49,7 @@ const NavBar = () => {
             data-testid="logo"
           />
 
-          <ul className={styles["nav-list"]}>
+          <ul className={styles['nav-list']}>
             <li>
               <NavLink activeClassName={styles.active} to="/">
                 BROWSE
@@ -68,28 +68,28 @@ const NavBar = () => {
             {accountLinks}
           </ul>
         </div>
-        <div className={styles["bottom-div"]}>
+        <div className={styles['bottom-div']}>
           <ul
-            className={styles["social-links"]}
+            className={styles['social-links']}
             data-testid="social-media-list"
           >
             <li>
-              <FontAwesomeIcon icon={["fab", "twitter"]} />
+              <FontAwesomeIcon icon={['fab', 'twitter']} />
             </li>
             <li>
-              <FontAwesomeIcon icon={["fab", "facebook-f"]} />
+              <FontAwesomeIcon icon={['fab', 'facebook-f']} />
             </li>
             <li>
-              <FontAwesomeIcon icon={["fab", "google-plus-g"]} />
+              <FontAwesomeIcon icon={['fab', 'google-plus-g']} />
             </li>
             <li>
-              <FontAwesomeIcon icon={["fab", "vimeo-v"]} />
+              <FontAwesomeIcon icon={['fab', 'vimeo-v']} />
             </li>
             <li>
-              <FontAwesomeIcon icon={["fab", "pinterest-p"]} />
+              <FontAwesomeIcon icon={['fab', 'pinterest-p']} />
             </li>
           </ul>
-          <small className={styles["copyright-info"]} data-testid="copyright">
+          <small className={styles['copyright-info']} data-testid="copyright">
             &#169; 2015 PIAGGIO & C.S.P.A - P.I.V.A
           </small>
         </div>

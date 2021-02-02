@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# Chez Toi: API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+"**Chez Toi**" is an application for browsing and booking viewings for houses. It interacts with the [Chez Toi API](https://github.com/Joseph-Burke/Chez-Toi-API) to provide users with up-to-date information on the houses that are available and the viewings that the user has booked.
 
-## Available Scripts
+<!-- ![screenshot](./screenshots/screenshot-main.png)
+![screenshot](./screenshots/screenshot-recipe.png) -->
 
-In the project directory, you can run:
+The website consists of several pages:
 
-### `yarn start`
+1) The "House Browser" page, where the user may view look through images and brief descriptions for the houses available for viewing and access the "House Details" page for any house that interests them.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2) The "House Details" page, where a user can view further information about the selected house and access a form to book a viewing at that house if they choose.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+3) The "Viewings" page, where a user can see all the viewings that they have booked so far, and cancel any if they wish.
 
-### `yarn test`
+4) The "Sign Up" page, where a user can create a new account - this is required in order to book a viewing.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5) The "Log In" page, where a user can log in to an existing account using their e-mail address.
 
-### `yarn build`
+## Live Demo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!-- To jump right into the project, visit the [Live Demo](https://eats-shoots-leaves.herokuapp.com/), deployed on Heroku. -->
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Built With
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **[React](https://reactjs.org/)** - Bootstrapped using the [**create-react-app**](https://www.npmjs.com/package/create-react-app) package.
+- **[Redux](https://redux.js.org/)** - Redux is used for storing state. The `react-redux` package was used to enable React bindings for Redux.
+- **[React Router](https://reactrouter.com/)** - the `react-router-dom` package was used to allow navigation between pages.
+- **[Bootstrap](https://getbootstrap.com/)** and **[Font Awesome](https://fontawesome.com/)** were both used, via their npm packages.
+- Kent Dodds' **[Testing Library](https://testing-library.com/)** - the `/jest-dom` and `/react` APIs were used for testing, on top of Jest, which is `create-react-app`'s default testing suite.
+- **ESLint** <!-- and **Stylelint** for --> linting JavaScript<!-- and CSS respectively-->.
 
-### `yarn eject`
+## Local Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Prerequisites
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+_**node.js is a pre-requisite of this project.**_
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Don't have node.js? Choose a download method [here](https://nodejs.org/en/download/).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Setup Instructions
 
-## Learn More
+1. Open a Terminal and navigate to the location in your system where you would like to download the project. **New to Terminal? [Learn here](https://www.freecodecamp.org/news/conquering-the-command-line-f85f5e46c07c/).**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Enter the following line of code to clone this repository:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`git clone git@github.com:Joseph-Burke/Chez-Toi-App.git`
 
-### Code Splitting
+3. Now that the repository has been cloned, navigate inside it using `cd Chez-Toi-App`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. The project's dependencies are managed by npm. The details of this project's dependencies can be found in `package.json`. To install them, enter the following line of code in the Terminal.
 
-### Analyzing the Bundle Size
+`npm install`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+5. Start the project with the `npm start` command. This will compile the code, start a server and open a browser for you to view the site.
 
-### Making a Progressive Web App
+## Tests
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+To run tests, simply enter the `npm test` command in the terminal. This will begin `create-react-app`'s built-in testing script, which will watch for changes and run tests automatically.
 
-### Advanced Configuration
+If you're interested in writing further tests for this project, refer to the documentation for [Jest](https://jestjs.io/docs/en/getting-started) and [Testing Library](https://testing-library.com/).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Author
 
-### Deployment
+👤 **Joe Burke**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Github: [@Joseph-Burke](https://github.com/Joseph-Burke)
+- Twitter: [@__joeburke](https://twitter.com/__joeburke)
+- Linkedin: [Joseph Burke](https://www.linkedin.com/in/--joeburke/)
 
-### `yarn build` fails to minify
+## 🤝 Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Contributions, issues and feature requests are always welcome!
+
+Drop me a line through any of the channels listed above or head directly to the [issues page](issues/).
+
+## Show your support
+
+Hey! Give this project a ⭐️! It costs nothing :)
+
+## Acknowledgments
+
+- This project was built as part of the Microverse Web Development course, which you can learn more about [here](https://www.microverse.org/).
+- Based on a [design](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) by [Murat Korkmaz](https://www.behance.net/muratk).
+
+## 📝 License
+
+This project is [MIT](lic.url) licensed.
+
