@@ -2,27 +2,25 @@ import { Provider } from 'react-redux';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { MemoryRouter, Route } from 'react-router-dom';
-import HouseBrowser from '../components/HouseBrowser';
+import NavBar from '../components/NavBar';
 import store from '../store/test-store';
 
-test('the HouseBrowser component renders correctly', () => {
+test('the NavBar component renders correctly', () => {
   render(
     <Provider store={store}>
       <MemoryRouter initialEntries={['/']} initialIndex={1}>
         <Route path="/">
-          <HouseBrowser />
+          <NavBar />
         </Route>
       </MemoryRouter>
     </Provider>,
   );
 
-  const houseBrowser = screen.getByTestId('houseBrowser');
-  const carousel = screen.getByTestId('carousel');
-  const title = screen.getByText('HOUSES');
-  const subTitle = screen.getByText(
-    'Browse through our houses available for a viewing',
-  );
-  [houseBrowser, carousel, title, subTitle].forEach(item => {
+  const logo = screen.getByTestId('logo');
+  const linksList = screen.getByTestId('social-media-list');
+  const copyright = screen.getByTestId('copyright');
+
+  [logo, linksList, copyright].forEach(item => {
     expect(item).toBeInTheDocument();
   });
 });

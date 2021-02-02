@@ -23,13 +23,14 @@ const ViewingsList = ({ houses, viewings }) => {
   };
 
   return (
-    <Col sm={10} className={styles['main-column']}>
+    <Col sm={10} className={styles["main-column"]} data-testid="viewings-list">
       <h1>Your Viewings</h1>
-      <CardGroup className={styles['card-group']}>
+      <CardGroup className={styles["card-group"]} data-testid="card-group">
         {viewings
           .filter(
-            viewing => viewing.user_id
-            === parseInt(localStorage.getItem('loggedInUserId'), 10),
+            viewing =>
+              viewing.user_id ===
+              parseInt(localStorage.getItem("loggedInUserId"), 10)
           )
           .map(viewing => {
             const dateTime = new Date(viewing.when);
@@ -50,14 +51,14 @@ const ViewingsList = ({ houses, viewings }) => {
                         <p>
                           <span className="mr-3">
                             <FontAwesomeIcon
-                              icon={['far', 'calendar-alt']}
+                              icon={["far", "calendar-alt"]}
                               className="mr-2"
                             />
                             {dateTime.toDateString()}
                           </span>
                           <span>
                             <FontAwesomeIcon
-                              icon={['far', 'clock']}
+                              icon={["far", "clock"]}
                               className="mr-2"
                             />
                             {`${dateTime.getHours()}:00`}
@@ -67,14 +68,14 @@ const ViewingsList = ({ houses, viewings }) => {
                         <p>
                           <span className="mr-3">
                             <FontAwesomeIcon
-                              icon={['fas', 'bed']}
+                              icon={["fas", "bed"]}
                               className="mr-2"
                             />
                             {house.bedrooms}
                           </span>
                           <span>
                             <FontAwesomeIcon
-                              icon={['fas', 'bath']}
+                              icon={["fas", "bath"]}
                               className="mr-2"
                             />
                             {house.bathrooms}
@@ -83,11 +84,12 @@ const ViewingsList = ({ houses, viewings }) => {
                       </div>
                       <div
                         className="flex-1 d-flex align-items-center justify-content-center"
-                        style={{ flex: '1' }}
+                        style={{ flex: "1" }}
                       >
-                        <Button onClick={() => {
-                          handleRemove(viewing.id);
-                        }}
+                        <Button
+                          onClick={() => {
+                            handleRemove(viewing.id);
+                          }}
                         >
                           Cancel Viewing
                         </Button>
@@ -114,14 +116,14 @@ const mapStateToProps = state => {
 ViewingsList.propTypes = {
   houses: PropTypes.arrayOf(
     PropTypes.shape({
-      bathrooms: PropTypes.number.isRequired,
-      bedrooms: PropTypes.string.isRequired,
+      bathrooms: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      bedrooms: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       created_at: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,
       location: PropTypes.string.isRequired,
-      updated_at: PropTypes.string.isRequired,
-    }),
+      updated_at: PropTypes.string.isRequired
+    })
   ).isRequired,
   viewings: PropTypes.arrayOf(
     PropTypes.shape({
@@ -129,9 +131,9 @@ ViewingsList.propTypes = {
       house_id: PropTypes.number.isRequired,
       user_id: PropTypes.number.isRequired,
       created_at: PropTypes.string.isRequired,
-      updated_at: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+      updated_at: PropTypes.string.isRequired
+    })
+  ).isRequired
 };
 
 export default connect(mapStateToProps)(ViewingsList);

@@ -19,7 +19,7 @@ import SignUp from './SignUp';
 import styles from './styles/App.module.scss';
 
 const App = () => (
-  <Container fluid className={styles.app}>
+  <Container fluid className={styles.app} data-testid="app">
     <Row noGutters className={styles.row}>
       <Router>
         <NavBar />

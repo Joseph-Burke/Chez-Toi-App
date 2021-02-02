@@ -30,7 +30,12 @@ const LogIn = () => {
   };
 
   return (
-    <Col sm={10} as={Container} className={styles['main-column']}>
+    <Col
+      sm={10}
+      as={Container}
+      className={styles['main-column']}
+      data-testid="logIn"
+    >
       <form className="form p-3">
         <h1>Log In</h1>
         <div className="form-group">
@@ -49,11 +54,12 @@ const LogIn = () => {
           onClick={handleSubmit}
           className="btn btn-primary my-2"
           type="button"
+          id="submit"
         >
           Submit
         </button>
       </form>
-      <Alert show={showAlert} variant="warning">
+      <Alert show={showAlert} variant="warning" data-testid="alert">
         {`"${submittedEmail}" does not match any of the users in our database! Double-check your spelling, or try creating a new account instead.`}
       </Alert>
     </Col>

@@ -16,7 +16,7 @@ const HouseBrowser = props => {
     <Col
       sm={10}
       as={Container}
-      className={styles["main-column"]}
+      className={styles['main-column']}
       data-testid="houseBrowser"
     >
       <h1>HOUSES</h1>
@@ -28,13 +28,13 @@ const HouseBrowser = props => {
         data-testid="carousel"
       >
         {houses.map(house => (
-          <Carousel.Item key={house.id} className={styles["carousel-item"]}>
+          <Carousel.Item key={house.id} className={styles['carousel-item']}>
             <Image
               src={getHousePictureURL(house.id)}
               alt={`A picture of a house at ${house.location}`}
               className={styles.image}
             />
-            <Carousel.Caption className={styles["carousel-caption"]}>
+            <Carousel.Caption className={styles['carousel-caption']}>
               <h3>{house.location}</h3>
               <p>{house.description}</p>
               <Link

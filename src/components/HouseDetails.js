@@ -66,7 +66,12 @@ const HouseDetails = ({ houses, refreshStore }) => {
   };
 
   return (
-    <Col sm={10} as={Row} className={styles['main-column']}>
+    <Col
+      sm={10}
+      as={Row}
+      className={styles['main-column']}
+      data-testid="houseDetails"
+    >
       <Col sm={9}>
         <Image
           className={styles.image}
@@ -81,14 +86,14 @@ const HouseDetails = ({ houses, refreshStore }) => {
         <Button variant="primary" onClick={openModal}>
           Book a Viewing
         </Button>
-        <Modal show={showModal} onHide={closeModal}>
+        <Modal show={showModal} onHide={closeModal} data-testid="modal">
           <Modal.Header closeButton>
             <Modal.Title>Book a Viewing</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <p>Choose a time and date to view this house:</p>
 
-            <form>
+            <form data-testid="form">
               <div className="form-group">
                 <label htmlFor="date">
                   Date
@@ -142,8 +147,8 @@ const mapDispatchToProps = dispatch => ({
 HouseDetails.propTypes = {
   houses: PropTypes.arrayOf(
     PropTypes.shape({
-      bathrooms: PropTypes.string.isRequired,
-      bedrooms: PropTypes.string.isRequired,
+      bathrooms: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      bedrooms: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       created_at: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,

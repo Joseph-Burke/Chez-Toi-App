@@ -26,7 +26,7 @@ const SignUp = () => {
   };
 
   return (
-    <Col sm={10} as={Container}>
+    <Col sm={10} as={Container} data-testid="sign-up">
       <form className="form p-3">
         <h1>Sign Up</h1>
         <div className="form-group">
