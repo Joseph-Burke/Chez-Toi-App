@@ -13,19 +13,28 @@ import styles from './styles/HouseBrowser.module.scss';
 const HouseBrowser = props => {
   const { houses } = props;
   return (
-    <Col sm={10} as={Container} className={styles['main-column']}>
+    <Col
+      sm={10}
+      as={Container}
+      className={styles["main-column"]}
+      data-testid="houseBrowser"
+    >
       <h1>HOUSES</h1>
       <h5>Browse through our houses available for a viewing</h5>
 
-      <Carousel interval={null} className={styles.carousel}>
+      <Carousel
+        interval={null}
+        className={styles.carousel}
+        data-testid="carousel"
+      >
         {houses.map(house => (
-          <Carousel.Item key={house.id} className={styles['carousel-item']}>
+          <Carousel.Item key={house.id} className={styles["carousel-item"]}>
             <Image
               src={getHousePictureURL(house.id)}
               alt={`A picture of a house at ${house.location}`}
               className={styles.image}
             />
-            <Carousel.Caption className={styles['carousel-caption']}>
+            <Carousel.Caption className={styles["carousel-caption"]}>
               <h3>{house.location}</h3>
               <p>{house.description}</p>
               <Link
@@ -50,8 +59,8 @@ const mapStateToProps = state => ({
 HouseBrowser.propTypes = {
   houses: PropTypes.arrayOf(
     PropTypes.shape({
-      bathrooms: PropTypes.string.isRequired,
-      bedrooms: PropTypes.string.isRequired,
+      bathrooms: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      bedrooms: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       created_at: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,
