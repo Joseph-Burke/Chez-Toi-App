@@ -6,7 +6,7 @@ import storePromise from '../store/store';
 
 const removeViewing = async id => {
   // Send DELETE request
-  await fetch(`http://localhost:3000/viewings/${id}`, {
+  await fetch(`https://chez-toi-api.herokuapp.com/viewings/${id}`, {
     method: 'DELETE',
     mode: 'cors',
   });

@@ -1,4 +1,4 @@
-# Chez Toi: API
+# Chez Toi: App
 
 "**Chez Toi**" is an application for browsing and booking viewings for houses. It interacts with the [Chez Toi API](https://github.com/Joseph-Burke/Chez-Toi-API) to provide users with up-to-date information on the houses that are available and the viewings that the user has booked.
 

@@ -57,7 +57,7 @@ const HouseDetails = ({ houses, refreshStore }) => {
       .map(key => `${key}=${params[key]}`)
       .join('&');
 
-    await fetch(`http://localhost:3000/viewings?${paramsString}`, {
+    await fetch(`https://chez-toi-api.herokuapp.com/viewings?${paramsString}`, {
       method: 'POST',
       mode: 'cors',
     });

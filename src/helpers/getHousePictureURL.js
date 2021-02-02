@@ -1,5 +1,5 @@
 const getURL = houseId => {
-  const prefix = 'http://localhost:3000';
+  const prefix = 'https://chez-toi-api.herokuapp.com';
   return `${prefix}/houses/${houseId}/picture`;
 };
 

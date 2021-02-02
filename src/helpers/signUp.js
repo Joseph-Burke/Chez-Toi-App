@@ -5,7 +5,7 @@ const signUp = async params => {
     .map(key => `${key}=${params[key]}`)
     .join('&');
 
-  await fetch(`http://localhost:3000/users?${paramsString}`, {
+  await fetch(`https://chez-toi-api.herokuapp.com/users?${paramsString}`, {
     method: 'POST',
     mode: 'cors',
   })
