@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -7,11 +8,17 @@ import Col from 'react-bootstrap/Col';
 import Carousel from 'react-bootstrap/Carousel';
 import Image from 'react-bootstrap/Image';
 
+import { refreshStore as refreshStoreThunk } from '../reducers/reducer';
 import getHousePictureURL from '../helpers/getHousePictureURL';
 import styles from './styles/HouseBrowser.module.scss';
 
 const HouseBrowser = props => {
-  const { houses } = props;
+  const { houses, refreshStore } = props;
+
+  useEffect(() => {
+    refreshStore();
+  });
+
   return (
     <Col
       sm={10}
@@ -56,6 +63,12 @@ const mapStateToProps = state => ({
   houses: state.houses,
 });
 
+const mapDispatchToProps = dispatch => ({
+  refreshStore: () => {
+    dispatch(refreshStoreThunk());
+  },
+});
+
 HouseBrowser.propTypes = {
   houses: PropTypes.arrayOf(
     PropTypes.shape({
@@ -68,6 +81,7 @@ HouseBrowser.propTypes = {
       updated_at: PropTypes.string.isRequired,
     }),
   ).isRequired,
+  refreshStore: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps)(HouseBrowser);
+export default connect(mapStateToProps, mapDispatchToProps)(HouseBrowser);
