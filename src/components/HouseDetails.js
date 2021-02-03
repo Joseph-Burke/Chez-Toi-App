@@ -25,8 +25,10 @@ const HouseDetails = ({ houses, refreshStore }) => {
   const [showAlert, setShowAlert] = useState(false);
   const openAlert = () => setShowAlert(true);
 
-  const [date, setDate] = useState('2020-02-01');
-  const [time, setTime] = useState('20:00:00');
+  const todayDate = new Date(Date.now()).toJSON().split('T')[0];
+  const nowTime = new Date(Date.now()).toJSON().split('T')[1].slice(0, 5);
+  const [date, setDate] = useState(todayDate);
+  const [time, setTime] = useState(nowTime);
 
   const handleChange = (stateKey, { target: { value } }) => {
     switch (stateKey) {
@@ -100,6 +102,7 @@ const HouseDetails = ({ houses, refreshStore }) => {
                   <input
                     id="date"
                     type="date"
+                    min={todayDate}
                     className="form-control"
                     value={date}
                     onChange={handleChange.bind(this, 'date')}

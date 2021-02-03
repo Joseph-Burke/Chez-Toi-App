@@ -43,7 +43,7 @@ const ViewingsList = ({ houses, viewings }) => {
                 />
                 <Card.Body>
                   <Card.Title>{house.location}</Card.Title>
-                  <Card.Text>
+                  <Card.Text as="div">
                     <p>{house.description}</p>
                     <div className="d-flex">
                       <div>
