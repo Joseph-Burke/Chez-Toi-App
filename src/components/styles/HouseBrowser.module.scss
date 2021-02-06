@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap");
+
+.main-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+
+  h1,
+  h5 {
+    font-family: "Lato", sans-serif;
+  }
+
+  h1 {
+    margin-bottom: 0;
+  }
+
+  h5 {
+    color: rgba(150, 150, 150, 0.8);
+    font-size: 17px;
+    margin-bottom: 25px;
+  }
+
+  .carousel {
+    flex: 1;
+    width: 66%;
+    display: flex;
+    overflow-x: hidden;
+
+    .image {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .carousel-item {
+      .image {
+        margin: 0 auto;
+      }
+
+      .carousel-caption {
+        position: static;
+        color: black;
+        padding-top: 0;
+      }
+    }
+
+    .carousel-indicators {
+      margin: 0;
+    }
+  }
+}
